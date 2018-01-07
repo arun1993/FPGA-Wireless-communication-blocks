@@ -1,0 +1,209 @@
+
+
+================================================================
+== Vivado HLS Report for 'output_function'
+================================================================
+* Date:           Tue Nov  7 13:26:00 2017
+
+* Version:        2017.3 (Build 2018833 on Wed Oct 04 20:30:40 MDT 2017)
+* Project:        dft_256_q4
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160tfbg484-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.68|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +---------+---------+---------+---------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min   |   max   |   min   |   max   |   Type  |
+    +---------+---------+---------+---------+---------+
+    |  1245697|  1245697|  1245697|  1245697|   none  |
+    +---------+---------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |      Latency      | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  1245696|  1245696|      4866|          -|          -|   256|    no    |
+        | + Loop 1.1  |     4864|     4864|        19|          -|          -|   256|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      0|       0|     107|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|     50|    2742|    3116|
+|Memory           |      256|      -|       0|       0|
+|Multiplexer      |        -|      -|       -|     249|
+|Register         |        -|      -|     858|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |      256|     50|    3600|    3472|
++-----------------+---------+-------+--------+--------+
+|Available        |      650|    600|  202800|  101400|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |       39|      8|       1|       3|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+-------+-----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +--------------------------+----------------------+---------+-------+-----+-----+
+    |dft_dadd_64ns_64ng8j_U15  |dft_dadd_64ns_64ng8j  |        0|      3|  445|  782|
+    |dft_dadddsub_64nsfYi_U14  |dft_dadddsub_64nsfYi  |        0|      3|  445|  782|
+    |dft_dmul_64ns_64nhbi_U16  |dft_dmul_64ns_64nhbi  |        0|     11|  299|  203|
+    |dft_dmul_64ns_64nhbi_U17  |dft_dmul_64ns_64nhbi  |        0|     11|  299|  203|
+    |dft_dmul_64ns_64nhbi_U18  |dft_dmul_64ns_64nhbi  |        0|     11|  299|  203|
+    |dft_dmul_64ns_64nhbi_U19  |dft_dmul_64ns_64nhbi  |        0|     11|  299|  203|
+    |dft_fpext_32ns_64bkb_U10  |dft_fpext_32ns_64bkb  |        0|      0|  100|  138|
+    |dft_fpext_32ns_64bkb_U11  |dft_fpext_32ns_64bkb  |        0|      0|  100|  138|
+    |dft_fpext_32ns_64bkb_U12  |dft_fpext_32ns_64bkb  |        0|      0|  100|  138|
+    |dft_fpext_32ns_64bkb_U13  |dft_fpext_32ns_64bkb  |        0|      0|  100|  138|
+    |dft_fptrunc_64ns_eOg_U8   |dft_fptrunc_64ns_eOg  |        0|      0|  128|   94|
+    |dft_fptrunc_64ns_eOg_U9   |dft_fptrunc_64ns_eOg  |        0|      0|  128|   94|
+    +--------------------------+----------------------+---------+-------+-----+-----+
+    |Total                     |                      |        0|     50| 2742| 3116|
+    +--------------------------+----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +------------------------+----------------------+---------+---+----+-------+-----+------+-------------+
+    |         Memory         |        Module        | BRAM_18K| FF| LUT| Words | Bits| Banks| W*Bits*Banks|
+    +------------------------+----------------------+---------+---+----+-------+-----+------+-------------+
+    |cos_coefficients_tab_U  |output_function_ccud  |      128|  0|   0|  65536|   32|     1|      2097152|
+    |sin_coefficients_tab_U  |output_function_sdEe  |      128|  0|   0|  65536|   32|     1|      2097152|
+    +------------------------+----------------------+---------+---+----+-------+-----+------+-------------+
+    |Total                   |                      |      256|  0|   0| 131072|   64|     2|      4194304|
+    +------------------------+----------------------+---------+---+----+-------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |tmp_2_fu_230_p2      |     *    |      0|  0|  41|           8|           8|
+    |i_1_fu_202_p2        |     +    |      0|  0|  16|           1|           9|
+    |j_1_fu_224_p2        |     +    |      0|  0|  16|           1|           9|
+    |exitcond1_fu_196_p2  |   icmp   |      0|  0|  13|           9|          10|
+    |exitcond_fu_218_p2   |   icmp   |      0|  0|  13|           9|          10|
+    |ap_block_state1      |    or    |      0|  0|   8|           1|           1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |Total                |          |      0|  0| 107|          29|          47|
+    +---------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------+-----+-----------+-----+-----------+
+    |        Name       | LUT | Input Size| Bits| Total Bits|
+    +-------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm          |  105|         22|    1|         22|
+    |ap_done            |    9|          2|    1|          2|
+    |grp_fu_116_p0      |   13|          3|   64|        192|
+    |grp_fu_120_p0      |   13|          3|   64|        192|
+    |grp_fu_124_p0      |   13|          3|   32|         96|
+    |grp_fu_128_p0      |   13|          3|   32|         96|
+    |grp_fu_138_opcode  |   13|          3|    2|          6|
+    |grp_fu_138_p0      |   13|          3|   64|        192|
+    |grp_fu_138_p1      |   13|          3|   64|        192|
+    |grp_fu_142_p0      |   13|          3|   64|        192|
+    |grp_fu_142_p1      |   13|          3|   64|        192|
+    |i_reg_94           |    9|          2|    9|         18|
+    |j_reg_105          |    9|          2|    9|         18|
+    +-------------------+-----+-----------+-----+-----------+
+    |Total              |  249|         55|  470|       1410|
+    +-------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------+----+----+-----+-----------+
+    |           Name           | FF | LUT| Bits| Const Bits|
+    +--------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                 |  21|   0|   21|          0|
+    |ap_done_reg               |   1|   0|    1|          0|
+    |i_1_reg_254               |   9|   0|    9|          0|
+    |i_reg_94                  |   9|   0|    9|          0|
+    |j_1_reg_272               |   9|   0|    9|          0|
+    |j_reg_105                 |   9|   0|    9|          0|
+    |reg_166                   |  32|   0|   32|          0|
+    |reg_172                   |  32|   0|   32|          0|
+    |reg_178                   |  64|   0|   64|          0|
+    |reg_185                   |  64|   0|   64|          0|
+    |sample_imag_addr_reg_264  |   8|   0|    8|          0|
+    |sample_imag_load_reg_349  |  32|   0|   32|          0|
+    |sample_real_addr_reg_259  |   8|   0|    8|          0|
+    |sample_real_load_reg_339  |  32|   0|   32|          0|
+    |tmp_13_reg_324            |  64|   0|   64|          0|
+    |tmp_14_reg_329            |  64|   0|   64|          0|
+    |tmp_15_reg_344            |  64|   0|   64|          0|
+    |tmp_19_reg_246            |   8|   0|    8|          0|
+    |tmp_1_reg_319             |  64|   0|   64|          0|
+    |tmp_2_reg_277             |   8|   0|    8|          0|
+    |tmp_3_reg_334             |  64|   0|   64|          0|
+    |tmp_7_reg_302             |  64|   0|   64|          0|
+    |tmp_8_reg_314             |  64|   0|   64|          0|
+    |tmp_s_reg_308             |  64|   0|   64|          0|
+    +--------------------------+----+----+-----+-----------+
+    |Total                     | 858|   0|  858|          0|
+    +--------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+-----------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
++----------------------+-----+-----+------------+-----------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs | output_function | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs | output_function | return value |
+|ap_start              |  in |    1| ap_ctrl_hs | output_function | return value |
+|ap_done               | out |    1| ap_ctrl_hs | output_function | return value |
+|ap_continue           |  in |    1| ap_ctrl_hs | output_function | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | output_function | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | output_function | return value |
+|temp_real_address0    | out |    8|  ap_memory |    temp_real    |     array    |
+|temp_real_ce0         | out |    1|  ap_memory |    temp_real    |     array    |
+|temp_real_q0          |  in |   64|  ap_memory |    temp_real    |     array    |
+|temp_imag_address0    | out |    8|  ap_memory |    temp_imag    |     array    |
+|temp_imag_ce0         | out |    1|  ap_memory |    temp_imag    |     array    |
+|temp_imag_q0          |  in |   64|  ap_memory |    temp_imag    |     array    |
+|sample_real_address0  | out |    8|  ap_memory |   sample_real   |     array    |
+|sample_real_ce0       | out |    1|  ap_memory |   sample_real   |     array    |
+|sample_real_we0       | out |    1|  ap_memory |   sample_real   |     array    |
+|sample_real_d0        | out |   32|  ap_memory |   sample_real   |     array    |
+|sample_real_q0        |  in |   32|  ap_memory |   sample_real   |     array    |
+|sample_imag_address0  | out |    8|  ap_memory |   sample_imag   |     array    |
+|sample_imag_ce0       | out |    1|  ap_memory |   sample_imag   |     array    |
+|sample_imag_we0       | out |    1|  ap_memory |   sample_imag   |     array    |
+|sample_imag_d0        | out |   32|  ap_memory |   sample_imag   |     array    |
+|sample_imag_q0        |  in |   32|  ap_memory |   sample_imag   |     array    |
++----------------------+-----+-----+------------+-----------------+--------------+
+

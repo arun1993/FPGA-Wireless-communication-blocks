@@ -1,0 +1,200 @@
+
+
+================================================================
+== Vivado HLS Report for 'fft_stage_last'
+================================================================
+* Date:           Thu Nov 16 12:03:01 2017
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        ofdm
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k70tfbg484-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.70|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+---------+------+---------+---------+
+    |     Latency    |    Interval    | Pipeline|
+    |  min |   max   |  min |   max   |   Type  |
+    +------+---------+------+---------+---------+
+    |  7681|  3147265|  7681|  3147265|   none  |
+    +------+---------+------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+------+---------+-----------+-----------+-----------+---------+----------+
+        |                |     Latency    | Iteration |  Initiation Interval  |   Trip  |          |
+        |    Loop Name   |  min |   max   |  Latency  |  achieved |   target  |  Count  | Pipelined|
+        +----------------+------+---------+-----------+-----------+-----------+---------+----------+
+        |- butterfly     |  7680|  3147264| 15 ~ 6147 |          -|          -|      512|    no    |
+        | + butterfly.1  |    12|     6144|         12|          -|          -| 1 ~ 512 |    no    |
+        +----------------+------+---------+-----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+-------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF  |  LUT  |
++-----------------+---------+-------+-------+-------+
+|DSP              |        -|      -|      -|      -|
+|Expression       |        -|      -|    237|    108|
+|FIFO             |        -|      -|      -|      -|
+|Instance         |        -|     20|   1420|   1396|
+|Memory           |        2|      -|      0|      0|
+|Multiplexer      |        -|      -|      -|    174|
+|Register         |        -|      -|    557|      -|
++-----------------+---------+-------+-------+-------+
+|Total            |        2|     20|   2214|   1678|
++-----------------+---------+-------+-------+-------+
+|Available        |      270|    240|  84400|  42200|
++-----------------+---------+-------+-------+-------+
+|Utilization (%)  |    ~0   |      8|      2|      3|
++-----------------+---------+-------+-------+-------+
+
++ Detail: 
+    * Instance: 
+    +----------------------------+----------------------+---------+-------+-----+-----+
+    |          Instance          |        Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +----------------------------+----------------------+---------+-------+-----+-----+
+    |ofdm_receiver_fadbkb_x_U20  |ofdm_receiver_fadbkb  |        0|      2|  227|  214|
+    |ofdm_receiver_fadg8j_U21    |ofdm_receiver_fadg8j  |        0|      2|  227|  214|
+    |ofdm_receiver_fadg8j_U22    |ofdm_receiver_fadg8j  |        0|      2|  227|  214|
+    |ofdm_receiver_fmucud_x_U23  |ofdm_receiver_fmucud  |        0|      3|  128|  135|
+    |ofdm_receiver_fmucud_x_U24  |ofdm_receiver_fmucud  |        0|      3|  128|  135|
+    |ofdm_receiver_fmucud_x_U25  |ofdm_receiver_fmucud  |        0|      3|  128|  135|
+    |ofdm_receiver_fmucud_x_U26  |ofdm_receiver_fmucud  |        0|      3|  128|  135|
+    |ofdm_receiver_fsufYi_U19    |ofdm_receiver_fsufYi  |        0|      2|  227|  214|
+    +----------------------------+----------------------+---------+-------+-----+-----+
+    |Total                       |                      |        0|     20| 1420| 1396|
+    +----------------------------+----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +----------+-------------------+---------+---+----+------+-----+------+-------------+
+    |  Memory  |       Module      | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
+    +----------+-------------------+---------+---+----+------+-----+------+-------------+
+    |W_imag_U  |fft_stages_W_imag  |        1|  0|   0|   512|   32|     1|        16384|
+    |W_real_U  |fft_stages_W_real  |        1|  0|   0|   512|   32|     1|        16384|
+    +----------+-------------------+---------+---+----+------+-----+------+-------------+
+    |Total     |                   |        2|  0|   0|  1024|   64|     2|        32768|
+    +----------+-------------------+---------+---+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+-------+-----+----+------------+------------+
+    |    Variable Name   | Operation| DSP48E|  FF | LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+-------+-----+----+------------+------------+
+    |i_2_fu_295_p2       |     +    |      0|  101|  37|          32|          11|
+    |i_lower_fu_277_p2   |     +    |      0|  101|  37|          32|          10|
+    |j_fu_249_p2         |     +    |      0|   35|  15|          10|           1|
+    |exitcond_fu_243_p2  |   icmp   |      0|    0|   6|          10|          11|
+    |icmp_fu_271_p2      |   icmp   |      0|    0|  13|          22|           1|
+    +--------------------+----------+-------+-----+----+------------+------------+
+    |Total               |          |      0|  237| 108|         106|          34|
+    +--------------------+----------+-------+-----+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------+----+-----------+-----+-----------+
+    |        Name       | LUT| Input Size| Bits| Total Bits|
+    +-------------------+----+-----------+-----+-----------+
+    |X_I_address0       |  13|          3|   10|         30|
+    |X_R_address0       |  13|          3|   10|         30|
+    |ap_NS_fsm          |  65|         16|    1|         16|
+    |grp_fu_183_p0      |  13|          3|   32|         96|
+    |grp_fu_183_p1      |  13|          3|   32|         96|
+    |grp_fu_187_opcode  |  13|          3|    2|          6|
+    |grp_fu_187_p0      |  13|          3|   32|         96|
+    |grp_fu_187_p1      |  13|          3|   32|         96|
+    |i5_reg_173         |   9|          2|   32|         64|
+    |i_reg_162          |   9|          2|   10|         20|
+    +-------------------+----+-----------+-----+-----------+
+    |Total              | 174|         41|  193|        550|
+    +-------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------+----+----+-----+-----------+
+    |       Name      | FF | LUT| Bits| Const Bits|
+    +-----------------+----+----+-----+-----------+
+    |ap_CS_fsm        |  15|   0|   15|          0|
+    |c_reg_324        |  32|   0|   32|          0|
+    |i5_reg_173       |  32|   0|   32|          0|
+    |i_2_reg_403      |  32|   0|   32|          0|
+    |i_cast1_reg_301  |  10|   0|   32|         22|
+    |i_reg_162        |  10|   0|   10|          0|
+    |j_reg_309        |  10|   0|   10|          0|
+    |reg_223          |  32|   0|   32|          0|
+    |reg_231          |  32|   0|   32|          0|
+    |s_reg_330        |  32|   0|   32|          0|
+    |temp_I_reg_397   |  32|   0|   32|          0|
+    |temp_R_reg_391   |  32|   0|   32|          0|
+    |tmp_14_reg_375   |  64|   0|   64|          0|
+    |tmp_15_reg_339   |  64|   0|   64|          0|
+    |tmp_16_reg_355   |  32|   0|   32|          0|
+    |tmp_17_reg_360   |  32|   0|   32|          0|
+    |tmp_18_reg_365   |  32|   0|   32|          0|
+    |tmp_19_reg_370   |  32|   0|   32|          0|
+    +-----------------+----+----+-----+-----------+
+    |Total            | 557|   0|  579|         22|
+    +-----------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+----------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++----------------+-----+-----+------------+----------------+--------------+
+|ap_clk          |  in |    1| ap_ctrl_hs | fft_stage_last | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs | fft_stage_last | return value |
+|ap_start        |  in |    1| ap_ctrl_hs | fft_stage_last | return value |
+|ap_done         | out |    1| ap_ctrl_hs | fft_stage_last | return value |
+|ap_idle         | out |    1| ap_ctrl_hs | fft_stage_last | return value |
+|ap_ready        | out |    1| ap_ctrl_hs | fft_stage_last | return value |
+|X_R_address0    | out |   10|  ap_memory |       X_R      |     array    |
+|X_R_ce0         | out |    1|  ap_memory |       X_R      |     array    |
+|X_R_q0          |  in |   32|  ap_memory |       X_R      |     array    |
+|X_I_address0    | out |   10|  ap_memory |       X_I      |     array    |
+|X_I_ce0         | out |    1|  ap_memory |       X_I      |     array    |
+|X_I_q0          |  in |   32|  ap_memory |       X_I      |     array    |
+|OUT_R_address0  | out |   10|  ap_memory |      OUT_R     |     array    |
+|OUT_R_ce0       | out |    1|  ap_memory |      OUT_R     |     array    |
+|OUT_R_we0       | out |    1|  ap_memory |      OUT_R     |     array    |
+|OUT_R_d0        | out |   32|  ap_memory |      OUT_R     |     array    |
+|OUT_R_address1  | out |   10|  ap_memory |      OUT_R     |     array    |
+|OUT_R_ce1       | out |    1|  ap_memory |      OUT_R     |     array    |
+|OUT_R_we1       | out |    1|  ap_memory |      OUT_R     |     array    |
+|OUT_R_d1        | out |   32|  ap_memory |      OUT_R     |     array    |
+|OUT_I_address0  | out |   10|  ap_memory |      OUT_I     |     array    |
+|OUT_I_ce0       | out |    1|  ap_memory |      OUT_I     |     array    |
+|OUT_I_we0       | out |    1|  ap_memory |      OUT_I     |     array    |
+|OUT_I_d0        | out |   32|  ap_memory |      OUT_I     |     array    |
+|OUT_I_address1  | out |   10|  ap_memory |      OUT_I     |     array    |
+|OUT_I_ce1       | out |    1|  ap_memory |      OUT_I     |     array    |
+|OUT_I_we1       | out |    1|  ap_memory |      OUT_I     |     array    |
+|OUT_I_d1        | out |   32|  ap_memory |      OUT_I     |     array    |
++----------------+-----+-----+------------+----------------+--------------+
+

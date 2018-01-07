@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vivado HLS Report for 'bitonic_sorter'
+================================================================
+* Date:           Fri Dec 15 12:10:44 2017
+
+* Version:        2017.3 (Build 2018833 on Wed Oct 04 20:30:40 MDT 2017)
+* Project:        decoder_working
+* Solution:       bitonic_optimized
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.08|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    2|    2|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|    130|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       7|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|       7|    130|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |ap_block_pp0_stage0_11001       |    and   |      0|  0|   8|           1|           1|
+    |tmp_1_fu_107_p2                 |   icmp   |      0|  0|  13|          11|          11|
+    |tmp_23_1_fu_157_p2              |   icmp   |      0|  0|  13|          11|          11|
+    |tmp_30_0_0_1_fu_129_p2          |   icmp   |      0|  0|  13|          11|          11|
+    |tmp_s_fu_151_p2                 |   icmp   |      0|  0|  13|          11|          11|
+    |index_o_V_d0                    |  select  |      0|  0|   2|           1|           2|
+    |index_o_V_d1                    |  select  |      0|  0|   2|           1|           2|
+    |ll0_i_V_load_1_ll1_i_fu_135_p3  |  select  |      0|  0|  11|           1|          11|
+    |ll0_i_V_load_ll1_i_V_fu_121_p3  |  select  |      0|  0|  11|           1|          11|
+    |ll1_i_V_load_1_ll0_i_fu_143_p3  |  select  |      0|  0|  11|           1|          11|
+    |ll1_i_V_load_ll0_i_V_fu_113_p3  |  select  |      0|  0|  11|           1|          11|
+    |p_2_fu_175_p3                   |  select  |      0|  0|   3|           1|           3|
+    |p_3_fu_182_p3                   |  select  |      0|  0|   3|           1|           2|
+    |ap_enable_pp0                   |    xor   |      0|  0|   8|           1|           2|
+    |not_tmp_s_fu_166_p2             |    xor   |      0|  0|   8|           1|           2|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0| 130|          55|         102|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2  |  1|   0|    1|          0|
+    |tmp_1_reg_225            |  1|   0|    1|          0|
+    |tmp_23_1_reg_242         |  1|   0|    1|          0|
+    |tmp_30_0_0_1_reg_231     |  1|   0|    1|          0|
+    |tmp_s_reg_237            |  1|   0|    1|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    |  7|   0|    7|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+----------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++--------------------+-----+-----+------------+----------------+--------------+
+|ap_clk              |  in |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ap_rst              |  in |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ap_start            |  in |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ap_done             | out |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ap_idle             | out |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ap_ready            | out |    1| ap_ctrl_hs | bitonic_sorter | return value |
+|ll0_i_V_address0    | out |    1|  ap_memory |     ll0_i_V    |     array    |
+|ll0_i_V_ce0         | out |    1|  ap_memory |     ll0_i_V    |     array    |
+|ll0_i_V_q0          |  in |   11|  ap_memory |     ll0_i_V    |     array    |
+|ll0_i_V_address1    | out |    1|  ap_memory |     ll0_i_V    |     array    |
+|ll0_i_V_ce1         | out |    1|  ap_memory |     ll0_i_V    |     array    |
+|ll0_i_V_q1          |  in |   11|  ap_memory |     ll0_i_V    |     array    |
+|ll1_i_V_address0    | out |    1|  ap_memory |     ll1_i_V    |     array    |
+|ll1_i_V_ce0         | out |    1|  ap_memory |     ll1_i_V    |     array    |
+|ll1_i_V_q0          |  in |   11|  ap_memory |     ll1_i_V    |     array    |
+|ll1_i_V_address1    | out |    1|  ap_memory |     ll1_i_V    |     array    |
+|ll1_i_V_ce1         | out |    1|  ap_memory |     ll1_i_V    |     array    |
+|ll1_i_V_q1          |  in |   11|  ap_memory |     ll1_i_V    |     array    |
+|index_o_V_address0  | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_ce0       | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_we0       | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_d0        | out |    2|  ap_memory |    index_o_V   |     array    |
+|index_o_V_address1  | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_ce1       | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_we1       | out |    1|  ap_memory |    index_o_V   |     array    |
+|index_o_V_d1        | out |    2|  ap_memory |    index_o_V   |     array    |
++--------------------+-----+-----+------------+----------------+--------------+
+
